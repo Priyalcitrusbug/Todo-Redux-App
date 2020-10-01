@@ -10,7 +10,6 @@ const Todos = () => {
     storeAs: "todos",
   });
   const todos = useSelector((state) => state.firestore.data.todos);
-  console.log(todos);
   return (
     <div>
       <h3>Hello {displayName}</h3>
@@ -24,11 +23,12 @@ const Todos = () => {
         {todos &&
           Object.values(todos).map((todo) => (
             <li>
-              <ToDoItem
-                title={todo.title}
-                isDone={todo.isDone}
-                todoID={todo.todoID}
-              />
+              {todo === null ? '' : 
+                <ToDoItem
+                  title={todo.title}
+                  isDone={todo.isDone}
+                  todoID={todo.todoID}
+                />}
             </li>
           ))}
       </ul>

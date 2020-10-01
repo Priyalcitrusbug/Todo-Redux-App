@@ -3,17 +3,28 @@ import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 const ToDoItem = ({ isDone, title, todoID }) => {
   const [isTodoItemDone, setTodoItemDone] = useState(isDone);
-    const firestore = useFirestore();
-    const {uid} = useSelector(state => state.firebase.auth);
-  console.log(isTodoItemDone);
+  const firestore = useFirestore();
+  const {uid} = useSelector(state => state.firebase.auth);
+
   const handleChange = (event) => {
     if (event.currentTarget.type === "checkbox") {
       setTodoItemDone(!isTodoItemDone);
       firestore.collection("users").doc(uid).collection("todos").doc(todoID).update({
-          isDone: !isTodoItemDone
+        isDone: !isTodoItemDone
       })
     }
   };
+
+  const deleteTodo = () => {
+    firestore.collection("users").doc(uid).collection("todos").doc(todoID).delete().then(function() {
+      console.log("Deleted");
+    }).catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
+  }
+
+ 
+
   return (
     <div style={{
         textDecoration: isTodoItemDone && "line-through",
@@ -28,6 +39,7 @@ const ToDoItem = ({ isDone, title, todoID }) => {
         checked={isTodoItemDone}
       />
       {title}
+      {isTodoItemDone ? <button type="button" onClick={deleteTodo} >Remove</button> : <button disabled>Remove</button>}
     </div>
   );
 };
