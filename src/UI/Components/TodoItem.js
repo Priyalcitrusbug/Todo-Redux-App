@@ -27,7 +27,7 @@ const ToDoItem = ({ isDone, title, todoID }) => {
     <div className="container">
       <ul class="list-group table">
         <li class="list-group-item d-flex justify-content-between align-items-center w-5">
-          {title}
+          <span style={{textDecoration: isTodoItemDone && "line-through"}}>{title}</span>
           <span>
             <input
               type="checkbox"
