@@ -17,12 +17,13 @@ const SignIn = () => {
   };
   return (
     <div>
-      <h1>Sign In</h1>
+      <h1 className='m-5'>Sign In</h1>
       <button
         onClick={(event) => {
           event.preventDefault();
           signInWithGoogle();
         }}
+        className="btn btn-success"
       >
         Sign In with Google
       </button>

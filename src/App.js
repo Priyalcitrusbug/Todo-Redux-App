@@ -8,7 +8,7 @@ function App() {
     <div style = {{
       textAlign: "center"
     }}>
-      <h1>Redux Todo App</h1>
+      <h1 className="jumbotron text-center">Redux Todo App</h1>
       <Switch>
         <PrivateRoute path = "/todos">
           <Todos />

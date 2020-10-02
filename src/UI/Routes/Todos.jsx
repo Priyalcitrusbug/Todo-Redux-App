@@ -13,7 +13,7 @@ const Todos = () => {
   return (
     <div>
       <h3>Hello {displayName}</h3>
-      <h4>Todos</h4>
+      <h4 className="mt-5">Todos</h4>
       <AddTodo />
       <ul
         style={{
@@ -28,7 +28,8 @@ const Todos = () => {
                   title={todo.title}
                   isDone={todo.isDone}
                   todoID={todo.todoID}
-                />}
+                />
+              }
             </li>
           ))}
       </ul>

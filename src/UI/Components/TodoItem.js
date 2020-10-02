@@ -17,29 +17,31 @@ const ToDoItem = ({ isDone, title, todoID }) => {
 
   const deleteTodo = () => {
     firestore.collection("users").doc(uid).collection("todos").doc(todoID).delete().then(function() {
-      console.log("Deleted");
+      alert("Item successfully deleted.");      
     }).catch(function(error) {
       console.error("Error removing document: ", error);
     });
   }
 
- 
-
   return (
-    <div style={{
-        textDecoration: isTodoItemDone && "line-through",
-        opacity: isTodoItemDone ? 0.5 : 1,
-
-    }}>
-      <input
-        type="checkbox"
-        name=""
-        id=""
-        onChange={handleChange}
-        checked={isTodoItemDone}
-      />
-      {title}
-      {isTodoItemDone ? <button type="button" onClick={deleteTodo} >Remove</button> : <button disabled>Remove</button>}
+    <div className="container">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{title}</span>
+          <span>
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              onChange={handleChange}
+              checked={isTodoItemDone}
+            />
+          </span>
+          <span>{isTodoItemDone ? 
+            <button type="button" className="btn btn-secondary" onClick={deleteTodo} >Remove</button> :
+            <button className="btn btn-secondary" disabled>Remove</button>}</span>
+        </li>
+      </ul>
     </div>
   );
 };

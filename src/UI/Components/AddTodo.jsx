@@ -27,19 +27,21 @@ const AddTodo = () => {
     setPresentToDo("");
   };
   return (
-    <div>
+    <div className='container d-flex justify-content-center mb-6'>
       <form action="">
-        <input
-          type="text"
-          name="addTodo"
-          value={presentToDo}
-          onChange={handleChange}
-        />
-        <button
-          onClick={(event) => {
-            event.preventDefault();
-            addNewTodo(presentToDo);
+          <input
+            type="text"
+            name="addTodo"
+            value={presentToDo}
+            onChange={handleChange}
+            className='mt-2 mb-5'
+          />
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              addNewTodo(presentToDo);
           }}
+          className="btn btn-info ml-5"
         >
           Add Todo
         </button>
