@@ -25,9 +25,9 @@ const ToDoItem = ({ isDone, title, todoID }) => {
 
   return (
     <div className="container">
-      <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>{title}</span>
+      <ul class="list-group table">
+        <li class="list-group-item d-flex justify-content-between align-items-center w-5">
+          {title}
           <span>
             <input
               type="checkbox"
