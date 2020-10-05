@@ -43,7 +43,7 @@ const ToDoItem = ({ isDone, title, todoID }) => {
         <tbody>
           <tr>
             <td>
-              <form action="">
+              <form action="" onSubmit={e => { e.preventDefault(); }}>
                 <span className="form-group">
                   <input type="text" className="form-control border-0" name="editTodo" value={inpValue} onChange={handleChange} readOnly={inpdisabled} onMouseLeave={handleInpLeave}/>
                 </span>
