@@ -10,7 +10,7 @@ function App() {
     }}>
       <h1 className="jumbotron text-center">Redux Todo App</h1>
       <Switch>
-        <PrivateRoute path = "/todos">
+        <PrivateRoute path = "/#/todos">
           <Todos />
         </PrivateRoute>
         <Route path = "/">
