@@ -8,7 +8,7 @@ import ToDoItem from "../Components/TodoItem";
 const Todos = () => {
   const { displayName, uid } = useSelector((state) => state.firebase.auth);
   useFirestoreConnect({
-    collection: `users/${uid}/todos`,
+    collection: `users/${uid}/#/todos`,
     storeAs: "todos",
   });
   const todos = useSelector((state) => state.firestore.data.todos);

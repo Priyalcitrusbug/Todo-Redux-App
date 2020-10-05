@@ -12,7 +12,7 @@ const SignIn = () => {
         type: "popup",
       })
       .then(() => {
-        history.push("/todos");
+        history.push("/#/todos");
       });
   };
   return (
